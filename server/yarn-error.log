@@ -1,0 +1,49 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Xian\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add multer path
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\Xian\anaconda3;C:\Users\Xian\anaconda3\Library\mingw-w64\bin;C:\Users\Xian\anaconda3\Library\usr\bin;C:\Users\Xian\anaconda3\Library\bin;C:\Users\Xian\anaconda3\Scripts;C:\Users\Xian\AppData\Local\Microsoft\WindowsApps;C:\Users\Xian\AppData\Local\atom\bin;D:\vs code\Microsoft VS Code\bin;C:\Users\Xian\AppData\Roaming\npm;C:\Users\Xian\AppData\Local\GitHubDesktop\bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  16.3.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Xian\Desktop\node-react-social-media-app\server\node_modules\bcrypt\lib\binding\napi-v3\bcrypt_lib.node'
+
+npm manifest: 
+  {
+    "name": "node",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "start": "nodemon index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "bcrypt": "^5.0.1",
+      "cors": "^2.8.5",
+      "dotenv": "^10.0.0",
+      "express": "^4.17.1",
+      "gitignore": "^0.7.0",
+      "helmet": "^4.6.0",
+      "mongoose": "^6.0.12",
+      "morgan": "^1.10.0",
+      "multer": "^1.4.3",
+      "nodemon": "^2.0.14",
+      "path": "^0.12.7"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

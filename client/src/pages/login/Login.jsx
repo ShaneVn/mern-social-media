@@ -1,4 +1,4 @@
-import { useRef, useContext } from "react";
+import { useRef, useContext, useState } from "react";
 import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
@@ -18,7 +18,9 @@ export default function Login() {
     );
   };
 
-  console.log(user);
+ 
+  
+  
 
   return (
     <div className="login">
@@ -44,7 +46,7 @@ export default function Login() {
               placeholder="password"
               required
               className="loginInput"
-              minLength="6"
+              // minLength="6"
               ref={password}
             />
             <button className="loginButton" disabled={isFetching}>
@@ -62,6 +64,7 @@ export default function Login() {
                 "Create a new Account"
               )}
             </button>  </Link>
+            <p style={{color:"red", alignSelf:"center"}}>{error && error.message}</p>
           </form>
         </div>
       </div>

@@ -23,17 +23,22 @@ router.post("/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
     //create new user
+    // if (await User.findOne({ email: req.body.email })){
+    //   throw "email already exist"
+    // }
+    // else{}
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
     });
-
     //save user and respond
     const user = await newUser.save();
     res.status(200).json(user);
+  
   } catch (err) {
     res.status(500).json(err)
+    
   }
 });
 
@@ -52,7 +57,7 @@ router.post("/login", async (req, res) => {
 
     res.status(200).json(user)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json("wrong password")
   }
 });
 

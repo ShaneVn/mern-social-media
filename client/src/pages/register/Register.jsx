@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef,useState } from "react";
 import "./register.css";
 import { useNavigate } from "react-router";
 import axios from "axios";
@@ -10,6 +10,7 @@ export default function Register() {
   const password = useRef();
   const passwordAgain = useRef();
   const navigate = useNavigate()
+  const [err, setError] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +26,10 @@ export default function Register() {
         await axios.post("/auth/register", user);
         navigate("/login");
       } catch (err) {
-        console.log(err);
+        
+        setError("Email already exist");
+        console.log(err)
+        
       }
     }
   };
@@ -62,7 +66,7 @@ export default function Register() {
               type="password"
               className="loginInput"
               ref = {password}
-              minLength="6"
+              // minLength="6"
             />
             <input
               required
@@ -70,7 +74,7 @@ export default function Register() {
               type="password"
               className="loginInput"
               ref = {passwordAgain}
-              minLength="6"
+              // minLength="6"
             />
             <button className="loginButton">Register</button>
             <span className="loginForgot">Forget Password</span>
@@ -79,7 +83,9 @@ export default function Register() {
                 Already have an account
               </button>
             </Link>
+            <p style={{color:"red", alignSelf:"center"}}>{err}</p>
           </div>
+          
         </form>
       </div>
     </div>
