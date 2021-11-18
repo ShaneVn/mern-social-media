@@ -36,6 +36,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/client/build", "index.html"));
 });
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("backend server is running");
 });
