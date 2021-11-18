@@ -1,8 +1,8 @@
 import { useRef,useState } from "react";
 import "./register.css";
 import { useNavigate } from "react-router";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../../config";
 
 export default function Register() {
   const username = useRef();
@@ -23,7 +23,7 @@ export default function Register() {
         password: password.current.value,
       };
       try {
-        await axios.post("/auth/register", user);
+        await axiosInstance.post("/auth/register", user);
         navigate("/login");
       } catch (err) {
         

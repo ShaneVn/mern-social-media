@@ -4,7 +4,7 @@ import { Users } from "../../dummyData";
 import Online from "../online/Online";
 import { AuthContext } from "../../context/AuthContext";
 import "./rightbar.css";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 import { Add, Remove } from "@material-ui/icons";
 
 export default function Rightbar({ user }) {
@@ -20,7 +20,7 @@ export default function Rightbar({ user }) {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendList = await axios.get("/users/friends/" + user._id);
+        const friendList = await axiosInstance.get("/users/friends/" + user._id);
         setFriends(friendList.data);
         console.log(friends);
       } catch (err) {

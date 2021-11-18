@@ -2,7 +2,7 @@ import { useContext, useState, useRef, useEffect } from "react";
 import { PermMedia, Label, Room, EmojiEmotions } from "@material-ui/icons";
 import { AuthContext } from "../../context/AuthContext";
 import "./share.css";
-import axios from "axios"
+import { axiosInstance } from "../../config";
 
 export default function Share() {
   const { user, SetIsposted } = useContext(AuthContext);
@@ -19,7 +19,7 @@ export default function Share() {
       }
 
       try{
-        await axios.post("/posts", newPost)
+        await axiosInstance.post("/posts", newPost)
         SetIsposted(prev=> !prev)
        
       }

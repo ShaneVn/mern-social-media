@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { MoreVert } from "@material-ui/icons";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 import "./post.css";
 import { Link } from "react-router-dom";
 import { format } from "timeago.js";
@@ -15,7 +15,7 @@ function Post({ post }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?userId=${post.userId}`);
+      const res = await axiosInstance.get(`/users?userId=${post.userId}`);
       setUser(res.data);
     };
     fetchUser();
@@ -27,7 +27,7 @@ function Post({ post }) {
 
   const likeHandler = async () => {
     try {
-      await axios.put(`/posts/${post._id}/like`, { userId: currentUser._id });
+      await axiosInstance.put(`/posts/${post._id}/like`, { userId: currentUser._id });
   
     } catch (err) {
       console.log(err);
