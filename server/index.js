@@ -1,7 +1,6 @@
 const express = require("express")
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const helmet = require("helmet");
 const morgan = require("morgan");
 const app = express()
 const userRoute = require("./routes/users")
@@ -20,7 +19,7 @@ mongoose
 
 // middleware
 app.use(express.json())
-app.use(helmet())
+
 app.use(morgan("common"))
 
 
